@@ -1,0 +1,118 @@
+<div id="background">
+  <br>
+  <div class="container">
+    <h2>Uygulamalarımız</h2>
+  </div>
+  <br>
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="list-group">
+        <button class="list-group-item list-group-item-action" aria-current="true" routerLink="/applications"
+          routerLinkActive="active" (click)="GetAllImage()">Tüm Resimler</button>
+        <div *ngIf="dataLoaded===false" class="text-center">
+          <img src="../../../assets/logo.png" width="150" height="75" alt=""><br>
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div *ngIf="dataLoaded ===true">
+          <button *ngFor="let category of imageCategory" class="list-group-item list-group-item-action"
+            routerLink="/applications/{{category.id}}" routerLinkActive="active">{{category.name}}</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="dataLoaded == false" class="col-lg-9">
+      <div class="text-center">
+        <img src="../../../assets/logo.png" width="150" height="75" alt=""><br>
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+    </div>
+    <div *ngIf="dataLoaded==true" class="col-lg-10">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div *ngFor="let image of images ">
+
+          <div class="card ">
+
+            <img class="card-img-top" width="" height="" src="{{image.uri}}">
+            <div class="card-body text-center">
+              <h6 class="card-title">{{image.name}}</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group ">
+                  <a type="button" class="btn btn-sm btn-outline-success" target="_blank" href="{{image.uri}}">Büyük
+                    Resim</a>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <br>
+      <br>
+      <nav aria-label="...">
+
+        <!-- not query -->
+        <ul *ngIf="!query" class="pagination justify-content-center">
+          <li *ngFor="let index of pageSize" class="page-item">
+            <a [className]="itemActive(index,pageResponse.pageIndex)" (click)="GetAllImage(index-1,size)">{{index}}</a>
+          </li>
+        </ul>
+
+        <!--  query -->
+        <ul *ngIf="query" class="pagination justify-content-center">
+          <li *ngFor="let index of pageSize" class="page-item">
+            <a [className]="itemActive(index,pageResponse.pageIndex)"
+              (click)="GetByCategoryIdImage(queryString,index-1,size)">{{index}}</a>
+          </li>
+        </ul>
+
+
+        <ul class="pagination justify-content-center">
+          <!-- not query -->
+          <li *ngIf="!query" class="page-item">
+            <p>Her sayfada
+              <button class="btn btn-outline-primary" (click)="size =6" (click)=" GetAllImage(index-1,size)">6</button>
+              veya
+              <button class="btn btn-outline-primary" (click)="size =10" (click)="GetAllImage(index-1,size)">10</button>
+              öğe göster.
+            </p>
+          </li>
+
+          <!--  query -->
+          <li *ngIf="query" class="page-item">
+            <p>Her sayfada
+              <button class="btn btn-outline-primary" (click)="size =6"
+                (click)=" GetByCategoryIdImage(queryString,index-1,size)">6</button>
+              veya
+              <button class="btn btn-outline-primary" (click)="size =10"
+                (click)="GetByCategoryIdImage(queryString,index-1,size)">10</button>
+              öğe göster.
+            </p>
+          </li>
+        </ul>
+
+
+      </nav>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<br>
+<br>

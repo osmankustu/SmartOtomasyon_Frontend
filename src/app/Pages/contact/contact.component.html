@@ -1,0 +1,74 @@
+<div id="background" >
+    <br>
+      <div class="container">
+          <h2>İletişim</h2>
+      </div>
+    <br>
+  </div>
+  <div class="d-flex p-4"></div>
+  <div *ngFor="let footer of footerModel" class="container">
+    <div *ngIf="dataLoaded == false" class="text-center">
+      <img src="../../../assets/logo.png" width="150" height="75" alt=""><br>
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div *ngIf="dataLoaded == true" class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">İletişim Bilgilerimiz</h3>
+            <div class="text-center">
+              <label id="label"><i id="icon" class='fas fa-map-marker-alt'></i>Adres</label>
+              <p>{{footer.adress}}</p>
+              <br>
+              <label id="label"><i id="icon" class='fa fa-envelope'></i>E-Posta</label>
+              <a href="mailto:{{footer.mail}}"><p>{{footer.mail}}</p></a>
+              <br>
+              <label id="label"><i id="icon" class="fa fa-phone"></i>Telefon</label>
+              <ul *ngFor="let numbers of footer.phoneNumbers"><li>{{numbers.name+" : "}}<a href="tel:{{numbers.phone}}">{{numbers.phone}}</a></li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6  ">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Bize Yazın</h3>
+            <p class="card-text">Her türlü bilgi talebi, öneri ve görüşleriniz için bize yazın *</p>
+            <form [formGroup]="contactForm">
+              <div class="input-group mb-3">
+                <input formControlName="nameSureName" type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default" placeholder="Adınız Soyadınız">
+              </div>
+              <div class="input-group mb-3">
+  
+                <input type="email" formControlName="Email" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default " placeholder=" E-Posta Adresiniz">
+              </div>
+              <div class="input-group mb-3">
+  
+                <input type="tel" formControlName="phone" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default " placeholder=" telefon numaranız (Opsiyonel)">
+              </div>
+  
+              <div class="input-group mb-3">
+  
+                <input type="text" formControlName="subject" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default " placeholder="Konu">
+              </div>
+              <div class="input-group">
+  
+                <textarea class="form-control" formControlName="message" aria-label="With textarea" rows="4" placeholder="Mesajınız"></textarea>
+              </div>
+              <br>
+              <button class="btn btn-info" type="submit" onclick="send()" (click)="send()">Gönder</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex p-2"></div>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d807948.6297141762!2d29.640726923859162!3d37.71851982309693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c38f6be4cea22f%3A0xa89f94e8c734000c!2sSMART%20OTOMASYON-ELEKTR%C4%B0K-PANO-YAZILIM-SERV%C4%B0S!5e0!3m2!1str!2str!4v1704198256511!5m2!1str!2str" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="d-flex p-2"></div>

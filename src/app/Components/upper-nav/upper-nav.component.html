@@ -1,0 +1,12 @@
+<div id="back">
+    <div *ngFor="let footer of footerModel" class="container d-flex flex-wrap">
+        <ul  class="nav me-auto">
+          <li *ngFor="let social of footer.socialLinks" class="nav-item"><a href="{{social.uri}}" class="nav-link link-dark px-2 active" aria-current="page"><i id="i" class="{{social.className}}"></i></a></li>
+          
+        </ul>
+        <ul class="nav">
+          <li *ngFor="let number of footer.phoneNumbers" class="nav-item"><a href="tel:+905434610575" class="nav-link link-dark px-2"><i id="i" class="fa fa-phone"></i>{{number.phone}}</a></li>
+          <li class="nav-item"><a href="mailto:{{footer.mail}}" class="nav-link link-dark px-2"><i id="i" class="fa fa-envelope"></i>{{footer.mail}}</a></li>
+        </ul>
+      </div>
+    </div>

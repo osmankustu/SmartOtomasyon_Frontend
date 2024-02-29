@@ -1,0 +1,50 @@
+<div  id="background">
+    <div class="d-flex p-4"></div>
+  </div>
+  <div  *ngFor="let footer of footerModel" class="container">
+    <div class="d-flex p-4"></div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <h2>{{footer.name}}</h2>
+        <br>
+        <p>{{footer.adress}}<br><br></p>
+        <strong>Telefon :</strong>
+        <ul *ngFor="let numbers of footer.phoneNumbers">
+          <li>{{numbers.name+" : "+numbers.phone}}</li>
+        </ul>
+        <br>
+        <p><strong>E-Posta :</strong>{{footer.mail}}</p>
+        
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <h6>Kullanışlı Bağlantılar</h6>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a routerLink="home" class="nav-link p-0 text-muted"><i id="arrow" class="fa fa-arrow-right" aria-hidden="true"></i>Anasayfa</a></li>
+            <li class="nav-item mb-2"><a routerLink="products" class="nav-link p-0 text-muted"><i id="arrow" class="fa fa-arrow-right" aria-hidden="true"></i>Ürünler</a></li>
+            <li class="nav-item mb-2"><a routerLink="applications" class="nav-link p-0 text-muted"><i id="arrow" class="fa fa-arrow-right" aria-hidden="true"></i>Uygulamalar</a></li>
+            <li class="nav-item mb-2"><a routerLink="documents" class="nav-link p-0 text-muted"><i id="arrow" class="fa fa-arrow-right" aria-hidden="true"></i>Dökümanlar</a></li>
+            <li class="nav-item mb-2"><a routerLink="contact" class="nav-link p-0 text-muted"><i id="arrow" class="fa fa-arrow-right" aria-hidden="true"></i>İletişim</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-lg-3 col-sm-3">
+        <h6>Sosyal Ağlar</h6>
+        <div class="d-flex" *ngFor="let social of footer.socialLinks">
+          <a href="{{social.uri}}"><i id="i" class="{{social.className}}"></i>{{social.name}}</a>
+        </div>
+      </div>
+    </div>
+    <div  class="d-flex p-4"></div>
+  </div>
+  <div id="background" class="d-flex p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6  col-sm-6">
+          <p><i class="fa fa-copyright" aria-hidden="true"></i>Copyright {{date}} <strong>Smart Otomasyon </strong>Tüm Hakları Saklıdır.</p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3"></div>
+        <div class="col-lg-3 col-md-6  col-sm-6 ">
+          <p><strong>Developed By</strong> <strong><a href="https://www.linkedin.com/in/osmankustu/"> Osman KUŞTU</a></strong></p>
+        </div>
+      </div>
+    </div>
+  </div>

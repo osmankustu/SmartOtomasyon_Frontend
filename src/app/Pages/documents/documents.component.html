@@ -1,0 +1,63 @@
+<div id="background" >
+    <br>
+      <div class="container">
+          <h2>Dökümanlar</h2>
+      </div>
+    <br>
+  </div>
+  <div class="d-flex p-3"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2"  placeholder="Döküman Ara" [(ngModel)]="documentName" name="document" aria-label="Search">
+        </form>
+        <br>
+        <div class="list-group">
+          <button class="list-group-item list-group-item-action" aria-current="true" routerLink="/documents"
+            routerLinkActive="active" (click)="GetAllDocuments()">Tüm Dökümanlar</button>
+          <div *ngIf="dataLoaded==false" class="text-center">
+            <img src="../../../assets/logo.png" width="150" height="75" alt=""><br>
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          <div *ngIf="dataLoaded ==true">
+            <button *ngFor="let category of documentCategories" class="list-group-item list-group-item-action"
+              routerLink="/documents/{{category.id}}" routerLinkActive="active">{{category.name}}</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="dataLoaded == false" class="col-lg-9">
+        <div class="text-center">
+          <img src="../../../assets/logo.png" width="150" height="75" alt=""><br>
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+  
+      </div>
+      <div *ngIf="dataLoaded==true" class="col-lg-9">
+  
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Dosya Adı</th>
+              <th scope="col">*</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of documents |document:documentName">
+              <th scope="row">{{d.name}}</th>
+              <td><a href="{{d.uri}}" class="btn btn-outline-success" target="_blank">Görüntüle</a></td> 
+            </tr>
+            
+          </tbody>
+          
+        </table>
+         
+      </div>
+    </div>
+  <br>
+  <br>
+    

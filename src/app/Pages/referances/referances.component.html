@@ -1,0 +1,41 @@
+<div id="background">
+    <br>
+    <div class="container">
+        <h2>Referanslarımız</h2>
+    </div>
+    <br>
+</div>
+
+<br>
+<div class="container" *ngIf="dataLoaded==true">
+    <div *ngIf="dataLoaded == true" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col" *ngFor="let referance of referancesModel">
+            <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="290" height="300" src="{{referance.logoUri}}">
+
+                <div class="card-body text-center">
+                    <h6 class="card-title">{{referance.title}}</h6>
+                    <p class="card-text">{{referance.description}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group ">
+                            <a type="button" class="btn btn-sm btn-outline-success" href="{{referance.siteUri}}">Siteyi
+                                Ziyaret Et</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+
+<div class="container" *ngIf="dataLoaded==false">
+    <div class="text-center">
+        <img src="../../../assets/logo.png" width="150" height="75" alt=""><br>
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>

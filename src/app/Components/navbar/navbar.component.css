@@ -1,0 +1,17 @@
+#nav-name{
+    font-weight: 500;
+    font-size: x-large;
+    font-style: normal;
+}
+
+.link-active{
+    font-weight: bold;
+}
+
+.btn-acitve{
+    background-color: #0f85a5;
+}
+
+#font{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

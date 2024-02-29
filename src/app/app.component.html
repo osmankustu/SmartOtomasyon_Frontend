@@ -1,0 +1,14 @@
+<!-- <div *ngIf="dataLoaded == false" class="text-center sec-center">
+  <img src="../../../assets/logo.png" width="300" height="150" alt=""><br>
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div> -->
+<!-- <div *ngIf="dataLoaded != false"> -->
+<app-upper-nav [footerModel]="footerModel"></app-upper-nav>
+<div class="container-xl">
+  <app-navbar></app-navbar>
+</div>
+<router-outlet></router-outlet>
+<app-footer [footerModel]="footerModel" [date]="date" ></app-footer>
+<!-- </div> -->
