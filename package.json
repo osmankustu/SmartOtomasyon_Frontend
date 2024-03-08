@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node dist/smart-otomasyon-public/server/server.mjs",
-    "build": "ng build --base-href 'https://frontend-wdqz.onrender.com' --configuration production",
+    "build": "ng build --base-href 'https://antalyasmartotomasyon.com' --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:SmartOtomasyon_Public": "node dist/smart-otomasyon-public/server/server.mjs"
